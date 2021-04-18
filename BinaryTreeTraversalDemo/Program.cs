@@ -8,28 +8,28 @@ namespace BinaryTreeTraversalDemo
         static void Main(string[] args)
         {
 
-            BinaryTree tree = new BinaryTree();
+            BinaryTree binaryTree = new BinaryTree();
 
-            tree.Insert(7);
-            tree.Insert(4);
-            tree.Insert(9);
-            tree.Insert(1);
-            tree.Insert(6);
-            tree.Insert(8);
-            tree.Insert(10);
+            binaryTree.Insert(7);
+            binaryTree.Insert(4);
+            binaryTree.Insert(9);
+            binaryTree.Insert(1);
+            binaryTree.Insert(6);
+            binaryTree.Insert(8);
+            binaryTree.Insert(10);
 
 
             Console.WriteLine("Print Pre-Order Traversal");
-            tree.PreOrderTraversal();
+            binaryTree.PreOrderTraversal();
 
             Console.WriteLine("Print In-Order Traversal in Ascending order");
-            tree.InOrderTraversalAsc();
+            binaryTree.InOrderTraversalAsc();
 
             Console.WriteLine("Print In-Order Traversal in Descending order");
-            tree.InOrderTraversalDesc();
+            binaryTree.InOrderTraversalDesc();
 
             Console.WriteLine("Print Post-Order Traversal");
-            tree.PostOrderTraversal();
+            binaryTree.PostOrderTraversal();
 
             Console.Read();
 

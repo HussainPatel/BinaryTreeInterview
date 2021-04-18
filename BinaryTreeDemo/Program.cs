@@ -24,10 +24,10 @@ namespace BinaryTreeDemo
             tree.Insert(8);
             tree.Insert(10);
 
-            //var result = tree.Find(7);
-            var result = tree.Find(11);
-
+            var result = tree.Find(7);
+            //var result = tree.Find(11);
             Console.WriteLine(result);
+
             Console.Read();
         }
     }

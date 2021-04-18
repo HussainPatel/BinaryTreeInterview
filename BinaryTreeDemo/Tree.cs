@@ -17,24 +17,6 @@ namespace BinaryTreeDemo
     {
         private Node root;
 
-        private class Node
-        {
-            public Node(int value)
-            {
-                this.value = value;
-            }
-
-            public int value;
-            public Node leftChild;
-            public Node rightChild;
-
-            public override string ToString()
-            {
-                return "Node: " + value;
-            }
-        }
-
-
         // Hint - for insert and Find - first you need ot find a node - for inserting a value , we need to find where in the tree we need to insert a value 
         // to find a value - we nned to use the look up algorithm - we need to start from root node 
         // so have a variable - current node  that is equat to value of root.
@@ -66,23 +48,23 @@ namespace BinaryTreeDemo
 
             while (true)
             {
-                if (value < current.value)
+                if (value < current.Value)
                 {
-                    if (current.leftChild == null)
+                    if (current.Left == null)
                     {
-                        current.leftChild = node;
+                        current.Left = node;
                         break;
                     }
-                    current = current.leftChild;
+                    current = current.Left;
                 }
                 else
                 {
-                    if (current.rightChild == null)
+                    if (current.Right == null)
                     {
-                        current.rightChild = node;
+                        current.Right = node;
                         break;
                     }
-                    current = current.rightChild;
+                    current = current.Right;
                 }
             }
         }
@@ -93,14 +75,14 @@ namespace BinaryTreeDemo
             var current = root;
             while (current != null)
             {
-                if (current.value == value) return true;
-                if (value < current.value)
+                if (current.Value == value) return true;
+                if (value < current.Value)
                 {
-                    current = current.leftChild;
+                    current = current.Left;
                 }
-                else if (value > current.value)
+                else if (value > current.Value)
                 {
-                    current = current.rightChild;
+                    current = current.Right;
                 }
             }
 
