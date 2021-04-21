@@ -17,7 +17,7 @@ namespace BinaryTreeTraversalDemo
 
         public override string ToString()
         {
-            return "BinaryNode: " + Value;
+            return ": " + Value;
         }
     }
 }
