@@ -8,7 +8,7 @@ namespace BinaryTreeTraversalDemo
         static void Main(string[] args)
         {
 
-            BinaryTree binaryTree = new BinaryTree(); 
+            BinaryTree binaryTree = new BinaryTree();
             binaryTree.Insert(7);
             binaryTree.Insert(4);
             binaryTree.Insert(9);
@@ -26,56 +26,63 @@ namespace BinaryTreeTraversalDemo
             //Console.WriteLine("Value found in tee: {0}", result1);
 
 
-
-
             // Tree Traversal
+
             //Console.WriteLine("Print Pre-Order Traversal");
             //binaryTree.PreOrderTraversal();
 
             //Console.WriteLine("Print In-Order Traversal in Ascending order");
             //binaryTree.InOrderTraversalAsc();
 
-            Console.WriteLine("Print In-Order Traversal  List in Asc order = Magic - ddeclare the IList of integers at class level");
-            var result = binaryTree.InOrderTraversalListAsc();
-
-            Console.Write("[");
-            foreach (var i in result)
-            {
-                Console.Write(i + ",");
-            }
-            Console.Write("]");
-
-            Console.WriteLine();
-
-            Console.WriteLine("Print In-Order Traversal  List in Asc order   - Magic - create a sub method to return the IList of integers");
-            var result1 = binaryTree.InOrderTraversalListAsc1();
-            Console.Write("[");
-            foreach (var i in result1)
-            {
-                Console.Write(i + ",");
-            }
-            Console.Write("]");
+            //Console.WriteLine("Print In-Order Traversal  List in Asc order = Magic - ddeclare the IList of integers at class level");
+            //var result = binaryTree.InOrderTraversalListAsc();
 
 
-
+            //Console.WriteLine("Print In-Order Traversal  List in Asc order   - Magic - create a sub method to return the IList of integers");
+            //var result1 = binaryTree.InOrderTraversalListAsc1();
 
             //Console.WriteLine("Print In-Order Traversal in Descending order");
             //binaryTree.InOrderTraversalDesc();
 
-
-
             //Console.WriteLine("Print Post-Order Traversal");
             //binaryTree.PostOrderTraversal();
 
-
-            // Height of Tree
+            // Height /Depth  of Tree
             // var result = binaryTree.HeightofTree();
             // Console.WriteLine("Height of tree is {0}", result);
 
 
-            Console.Read();
+            // Maximum Value in a Binary Tree
+            //Console.WriteLine("Maximum Value is : {0}", binaryTree.MaximumValue());
 
+            // Minimum Value in a binary tree
+            //Console.WriteLine("Minimum Value is : {0}", binaryTree.MinimumValue());
+
+            // Maximum Value in a Binary Search Tree
+            //Console.WriteLine("Maximum Value is : {0}", binaryTree.BSTMaximumValue());
+
+            // Minimum Value in a binary Search Tree
+            //Console.WriteLine("Minimum Value is : {0}", binaryTree.BSTMinimumValue());
+
+
+            // Check if two binary trees are equal
+            BinaryTree binaryTree2 = new BinaryTree();
+            binaryTree2.Insert(7);
+            binaryTree2.Insert(4);
+            binaryTree2.Insert(9);
+            binaryTree2.Insert(1);
+            binaryTree2.Insert(6);
+            binaryTree2.Insert(8);
+            //binaryTree2.Insert(10);
+
+            Console.WriteLine(" Are two binary trees equal -  {0}", binaryTree.Equality(binaryTree2));
+
+            Console.Read();
         }
+
+
+
+
 
             //static void Main(string[] args)
             //{
