@@ -16,17 +16,21 @@ namespace BinaryTreeDemo
 
             Tree tree = new Tree();
 
-            tree.Insert(7);           
-            tree.Insert(4);            
-            tree.Insert(9);            
-            tree.Insert(1);            
-            tree.Insert(6);            
-            tree.Insert(8);            
+            tree.Insert(7);
+            tree.Insert(4);
+            tree.Insert(9);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(8);
             tree.Insert(10);
-            var result = tree.Find(7);
+            //var result = tree.Find(7);
             //var result = tree.Find(11);
+            //Console.WriteLine(result);
 
-            Console.WriteLine(result);
+            tree.PreOrderTraversal();
+            tree.Delete(1);
+            Console.WriteLine();
+            tree.PreOrderTraversal();
 
             Console.Read();
         }

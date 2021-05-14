@@ -90,5 +90,66 @@ namespace BinaryTreeDemo
            
         }
 
+        public void PreOrderTraversal() => PreOrderTraversal(root);
+
+        private void PreOrderTraversal(Node root)
+        {
+            if (root == null) return;
+
+            Console.Write(root.Value + " ");
+            PreOrderTraversal(root.Left);
+            PreOrderTraversal(root.Right);
+        }
+
+        public bool Delete(int e)
+        {
+            var p = root;
+            Node pp = null;
+            while (p != null && p.Value != e)
+            {
+                pp = p;
+                if (e < p.Value)
+                    p = p.Left;
+                else if (e > p.Value)
+                    p = p.Right;
+            }
+
+            if (p == null) return false;
+
+            // handle third case 
+            if (p.Left != null && p.Right != null)
+            {
+                Node s = p.Left; // we can choose the largest from left or smallest from the right sub tree
+                Node ps = p;
+                while (s.Right != null)
+                {
+                    ps = s;
+                    s = s.Right;
+                }
+                p.Value = s.Value;
+                p = s;
+                pp = ps;
+            }
+
+            // handle second case
+            Node c = null;
+            if (p.Left != null)
+                c = p.Left;
+            else
+                c = p.Right;
+
+
+            if (p == root)
+                root = null;
+            else
+            {
+                if (p == pp.Left)
+                    pp.Left = c;
+                else
+                    pp.Right = c;
+            }
+
+            return true;
+        }
     }
 }
