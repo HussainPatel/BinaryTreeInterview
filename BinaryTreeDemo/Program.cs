@@ -23,8 +23,9 @@ namespace BinaryTreeDemo
             tree.Insert(6);            
             tree.Insert(8);            
             tree.Insert(10);
-            var result = tree.Find(7);
+            //var result = tree.Find(7);
             //var result = tree.Find(11);
+            var result = tree.FindRecursive(6);
 
             Console.WriteLine(result);
 

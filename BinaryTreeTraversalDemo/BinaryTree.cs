@@ -407,5 +407,97 @@ namespace BinaryTreeTraversalDemo
         }
 
         #endregion
+
+        #region "check validity of Binary Search Tree - Is Valid BST"
+
+        public void SwapRoot() => SwapRoot(root);
+
+
+        public void SwapRoot(BinaryTreeNode root)
+        {
+            var tmp = root.Left;
+            root.Left = root.Right;
+            root.Right = tmp;
+        }
+
+        public bool IsValidBinarySearchTree()
+        {
+            return IsValidBinarySearchTree(root, int.MinValue, int.MaxValue);
+        }
+        private bool IsValidBinarySearchTree(BinaryTreeNode root, int min, int max)
+        {
+            // check the base condition - check to see if root is null
+            //if root is null that means we are dealing with empty tree and this tree is a binary search tree 
+            if (root == null) return true;
+
+            // other wise we have to validate the value in this root node.
+            if (root.Value < min || root.Value > max) return false;
+
+            // now that root is in range - wee need ot check the left and the right sub tree value is in range or not Recursively
+            // as left is always less than the root value, so the max value will be root.value -1
+            // as right is always greater than root value, so the min value will be root.value + 1
+            return IsValidBinarySearchTree(root.Left, min, root.Value - 1)
+                && IsValidBinarySearchTree(root.Right, root.Value + 1, max);
+
+        }
+        #endregion
+
+        #region "value of node from at distance k"
+
+        public void PrintNodeAtDistance(int distance) => PrintNodeAtDistance(root, distance);
+
+        public void PrintNodeAtDistance(BinaryTreeNode root, int distance)
+        {
+            // what if root is null
+            if (root == null) return;
+
+            // base condition - that terminates the recusion
+            if (distance == 0)
+            {
+                Console.WriteLine(root.Value);
+                return;
+            }
+
+            PrintNodeAtDistance(root.Left, distance-1);
+            PrintNodeAtDistance(root.Right, distance-1);
+        }
+
+        public List<int> GetNodesAtDistance(int distance)
+        {
+            List<int> values = new List<int>();
+            GetNodesAtDistance(root, distance, values);
+            return values;
+        }
+
+        private void GetNodesAtDistance(BinaryTreeNode root, int distance, List<int> values)
+        {
+            if (root == null) return;
+            if (distance == 0)
+            {
+                values.Add(root.Value);
+                return;
+            }
+
+            GetNodesAtDistance(root.Left, distance-1, values);
+            GetNodesAtDistance(root.Right, distance-1, values);
+        }
+
+
+
+        #endregion
+
+        #region "Breadth Order Traversal / Level Order Traversal"       
+        public void TraversalLevelOrder()
+        {
+            for (var i = 0; i <= HeightofTree(); i++)
+            {
+                var list = GetNodesAtDistance(i);
+                foreach(var value in list)
+                    Console.WriteLine(value);
+            }
+        }
+
+        #endregion
+
     }
 }

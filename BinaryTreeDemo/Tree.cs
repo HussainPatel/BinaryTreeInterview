@@ -68,14 +68,13 @@ namespace BinaryTreeDemo
                 }
             }
         }
-        
+
         public bool Find(int value)
         {
             // we need to traverse the tree from root to the leaf node
             var current = root;
             while (current != null)
-            {
-                if (current.Value == value) return true;
+            {             
                 if (value < current.Value)
                 {
                     current = current.Left;
@@ -84,11 +83,31 @@ namespace BinaryTreeDemo
                 {
                     current = current.Right;
                 }
+                else
+                    return true;
             }
 
             return false;
-           
+
         }
 
+
+        public bool FindRecursive(int value) => FindRecursive(root, value);
+
+
+        public bool FindRecursive(Node root, int value)
+        {
+            
+            if (root == null) return false;
+
+            if (root.Value == value) return  true;
+
+            if(value < root.Value)
+                FindRecursive(root.Left, value);
+            else if (value > root.Value)
+                FindRecursive(root.Right, value);
+
+            return false;
+        }
     }
 }
